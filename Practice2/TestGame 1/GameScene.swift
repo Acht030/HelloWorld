@@ -316,7 +316,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     func projectileDidCollideWithMonster(monster:SKSpriteNode, projectile:SKSpriteNode ) {
         print("Hit")
-        projectile.alpha = 0.0
         monster.removeFromParent()
         monstersDestroyed += 1
         adjustScoreBy(100)
