@@ -186,27 +186,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)*/
         backgroundColor=SKColor.grayColor()
         
         player.position=CGPoint(x: size.width/10, y: size.height/2)
         addChild(player)
         setupHud()
-        
         setupDPad()
         
-        
-//        upButton.setButtonAction(player, triggerEvent: .TouchUpInside, action: #selector(GameScene.doNothing))
-//        upButton.setButtonAction(player, triggerEvent: .TouchDown, action: #selector(GameScene.moveUp(_:)))
-//        upButton.setButtonAction(player, triggerEvent: .TouchUp, action: #selector(GameScene.doNothing))
-        
-        
- 
         physicsWorld.gravity = CGVectorMake(0, 0)
         physicsWorld.contactDelegate = self
         
@@ -330,7 +316,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     func projectileDidCollideWithMonster(monster:SKSpriteNode, projectile:SKSpriteNode ) {
         print("Hit")
-        projectile.alpha = 0.0
         monster.removeFromParent()
         monstersDestroyed += 1
         adjustScoreBy(100)
